@@ -1,12 +1,24 @@
-import React, { createContext} from 'react';
+import React, { createContext, useState} from 'react';
+import {getAuth} from 'firebase/app'
+import app from '../Fairbase/firebase';
 
 export const AuthContext=createContext();
-const auth=auth()
+const auth= getAuth(app)
 const AuthProvider = ({childen}) => {
+    const [users, setUsers]=useState([])
+
+
+
+
+
+const info={
+    users,
+}
+
     return (
-        <div>
-            
-        </div>
+        <AuthContext.Provider value={info}>
+            {childen}
+        </AuthContext.Provider>
     );
 };
 
