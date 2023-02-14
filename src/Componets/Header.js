@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100 my-4">
+        <div className="navbar bg-base-100 my-4 shadow-gray-600 drop-shadow-xl" >
             <div className="flex-1">
                 <a href='/' className="btn btn-ghost normal-case text-xl">Fast Service</a>
             </div>
