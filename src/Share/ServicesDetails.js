@@ -1,12 +1,15 @@
 import React from 'react';
 
-const ServicesDetails = () => {
+const ServicesDetails = ({service}) => {
+    console.log(service)
+    const {title, des, img, price}=service
     return (
-        <div className="card card-side bg-base-100 shadow-xl">
-            <figure><img src="/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
+        <div className="card bg-base-100 shadow-xl">
+            <figure><img src={`https://ultahome.com/wp-content/uploads/2021/04/professional-painters-1024x682.jpg`} alt="Movie" /></figure>
             <div className="card-body">
-                <h2 className="card-title">New movie is released!</h2>
-                <p>Click the button to watch on Jetflix app.</p>
+                <h2 className="card-title">{title}</h2>
+                <p>{des}</p>
+                <p className='text-xs font-medium' >Price : ${price}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">Watch</button>
                 </div>

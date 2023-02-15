@@ -4,8 +4,8 @@ const ReviewItems = ({rev}) => {
     console.log(rev)
     const {customarName,email,massage, photo }=rev;
     return (
-        <div className='p-5'>
-            <div className="flex flex-row  items-center">
+        <div className='p-5 shadow-xl'>
+            <div className="flex flex-row  items-center mb-4">
                 <div className="avatar">
                     <div className="w-20 rounded-full">
                         <img src={photo} alt='' />

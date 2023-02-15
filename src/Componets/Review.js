@@ -5,7 +5,6 @@ import ReviewItems from '../Share/ReviewItems';
 import ServicesDetails from '../Share/ServicesDetails';
 
 const Review = () => {
-    // const service=useLoaderData()
     const { users } = useContext(AuthContext)
     const service = useLoaderData();
     const { _id, title } = service;
@@ -51,13 +50,10 @@ const Review = () => {
             .then(res => res.json())
             .then(data => setReview(data))
     }, [_id])
-    console.log(review)
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 py-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 py-4 gap-5'>
             <div className="">
-                {
-                    title
-                }
+                <ServicesDetails service={service}></ServicesDetails>
             </div>
             <div className="">
                 <p className="text-2xl-font-bold">our client say</p>
