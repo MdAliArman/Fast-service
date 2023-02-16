@@ -1,11 +1,10 @@
 import React from 'react';
 
 const ServicesDetails = ({service}) => {
-    console.log(service)
     const {title, des, img, price}=service
     return (
         <div className="card bg-base-100 shadow-xl">
-            <figure><img src={`https://ultahome.com/wp-content/uploads/2021/04/professional-painters-1024x682.jpg`} alt="Movie" /></figure>
+            <figure><img src={img} alt="Movie" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p>{des}</p>

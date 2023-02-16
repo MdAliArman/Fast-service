@@ -9,7 +9,7 @@ const Review = () => {
     const service = useLoaderData();
     const { _id, title } = service;
     const [review, setReview] = useState([])
-
+console.log(review)
     const addReview = (event) => {
         event.preventDefault();
         const form = event.target
@@ -46,7 +46,7 @@ const Review = () => {
             .catch(err => console.log(err))
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?reviewid=${_id}`)
+        fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [_id])

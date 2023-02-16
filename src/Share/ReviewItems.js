@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ReviewItems = ({rev}) => {
-    console.log(rev)
     const {customarName,email,massage, photo }=rev;
     return (
         <div className='p-5 shadow-xl'>
