@@ -56,16 +56,23 @@ console.log(review)
                 <ServicesDetails service={service}></ServicesDetails>
             </div>
             <div className="">
-                <p className="text-2xl-font-bold">our client say</p>
+               
+               
+                <h1 className="text-2xl font-bold text-center">Our client Say</h1>
+               {
+                review.length===0?
+                <h1 className='text-xl font-semibold text-green-600'>Please Add Review !!!!</h1>
+                :
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                   {
-                    review.map(rev=><ReviewItems
-                    key={rev._id}
-                    rev={rev}
-                    ></ReviewItems>)
-                   }
-                </div>
-                <div className="my-4" >
+                {
+                 review.map(rev=><ReviewItems
+                 key={rev._id}
+                 rev={rev}
+                 ></ReviewItems>)
+                }
+             </div>
+               }
+                <div className="my-4 block justify-items-center" >
 
                     <label htmlFor="my-modal" className="btn">Add Review</label>
                     <input type="checkbox" id="my-modal" className="modal-toggle" />
