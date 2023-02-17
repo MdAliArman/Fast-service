@@ -10,7 +10,7 @@ const ServicesDetails = ({service}) => {
                 <p>{des}</p>
                 <p className='text-xs font-medium' >Price : ${price}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
+                    <button className="btn btn-primary">See More</button>
                 </div>
             </div>
         </div>

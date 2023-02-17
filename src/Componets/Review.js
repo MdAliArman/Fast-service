@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Navigate, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import ReviewItems from '../Share/ReviewItems';
 import ServicesDetails from '../Share/ServicesDetails';
@@ -78,25 +78,29 @@ console.log(review)
                     <input type="checkbox" id="my-modal" className="modal-toggle" />
 
                     <div className="modal">
+                      
                         <div className="modal-box text-center">
-                            <form onSubmit={addReview}>
+                
+                        <form onSubmit={addReview}>
 
-                                <input name="name" type="text" placeholder="Name" className="input input-bordered w-full max-w-xs my-2" />
-                                <input name="email " type="email" placeholder="Email" className="input input-bordered w-full max-w-xs my-2" defaultValue={users?.email} readOnly />
-                                <input name='photourl' type="text" placeholder="Photo Url" className="input input-bordered w-full max-w-xs my-2" />
-                                <textarea name='massage' cols="40" className="textarea textarea-bordered my-2" placeholder="You review"></textarea>
+                            <input name="name" type="text" placeholder="Name" className="input input-bordered w-full max-w-xs my-2" />
+                            <input name="email " type="email" placeholder="Email" className="input input-bordered w-full max-w-xs my-2" defaultValue={users?.email} readOnly />
+                            <input name='photourl' type="text" placeholder="Photo Url" className="input input-bordered w-full max-w-xs my-2" />
+                            <textarea name='massage' cols="40" className="textarea textarea-bordered my-2" placeholder="You review"></textarea>
 
 
 
-                                <div className="modal-action">
+                            <div className="modal-action">
 
-                                    <label className="btn"><button>Submit</button></label>
-                                    <label htmlFor="my-modal" className="btn">Close</label>
-                                </div>
+                                <label className="btn"><button>Submit</button></label>
+                                <label htmlFor="my-modal" className="btn">Close</label>
+                            </div>
 
-                            </form>
+                        </form>
+                        
 
-                        </div>
+                    </div>
+                   
                     </div>
 
 
