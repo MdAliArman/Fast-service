@@ -22,7 +22,11 @@ const MyReviews = () => {
             .then(res=>res.json())
             .then(data=>{
                 console.log(data)
+               if(data.deletedCount > 0){
+               
                 setRefrech(!refrech)
+                alert('deleted seccusee full');
+               }
             })
         }
     }
@@ -37,9 +41,9 @@ const MyReviews = () => {
                                 <input type="checkbox" className="checkbox" />
                             </label>
                         </th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
+                        <th>Service Name</th>
+                        <th>Review</th>
+                        {/* <th>Favorite Color</th> */}
                         <th></th>
                     </tr>
                 </thead>
