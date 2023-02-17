@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Share/Banner/Banner';
 import Service from '../Share/service/Service';
+import Team from './Team';
 
 const Home = () => {
     const [service, setService] = useState([]);
@@ -24,9 +25,12 @@ const Home = () => {
                         ></Service>)
                     }
                 </div>
+               
+                <div className="card-actions justify-center">
                 <Link to='/service'><button className="btn btn-active btn-primary mx-auto">See More</button></Link>
             </div>
-
+            </div>
+            <Team></Team>
         </div>
     );
 };
