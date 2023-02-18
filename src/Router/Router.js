@@ -10,9 +10,9 @@ import SignIn from "../Componets/SignIn";
 import Main from "../layout/Main";
 import PrivateRouter from "./PrivateRouter";
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <Main></Main>,
         children: [
             {
@@ -29,12 +29,12 @@ const router=createBrowserRouter([
             },
             {
                 path: "/signup",
-                element:<SignIn></SignIn>
+                element: <SignIn></SignIn>
             },
             {
                 path: '/review/:id',
                 element: <Review></Review>,
-                loader:({params})=>fetch(`http://localhost:5000/allservice/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-zeta-one.vercel.app/allservice/${params.id}`)
             },
             {
                 path: '/myreview',

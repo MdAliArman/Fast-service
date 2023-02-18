@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import {  useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import ReviewItems from '../Share/ReviewItems';
 import ServicesDetails from '../Share/ServicesDetails';
@@ -28,7 +28,7 @@ const Review = () => {
             massage
         };
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://y-zeta-one.vercel.app/reviews', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -47,7 +47,7 @@ const Review = () => {
             .catch(err => console.log(err))
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://y-zeta-one.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [_id])

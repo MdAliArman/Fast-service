@@ -5,36 +5,36 @@ import Myreviewrow from '../Share/Myreviewrow';
 
 const MyReviews = () => {
     const [myreview, setMyreview] = useState([]);
-    const [refrech, setRefrech]=useState(false)
+    const [refrech, setRefrech] = useState(false)
     const { users } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${users?.email}`)
+        fetch(`https://y-zeta-one.vercel.app/reviews?email=${users?.email}`)
             .then(res => res.json())
             .then(data => setMyreview(data))
     }, [users?.email, refrech])
-  
-    const deletedHandle=(id)=>{
-        const proccesd= window.confirm('are you sure ?')
-        if(proccesd){
-            fetch(`http://localhost:5000/reviews/${id}`, {
+
+    const deletedHandle = (id) => {
+        const proccesd = window.confirm('are you sure ?')
+        if (proccesd) {
+            fetch(`https://y-zeta-one.vercel.app/reviews/${id}`, {
                 method: "DELETE"
             })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data)
-               if(data.deletedCount > 0){
-               
-                setRefrech(!refrech)
-               toast.success("Deleted Suceessfully")
-               }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+
+                        setRefrech(!refrech)
+                        toast.success("Deleted Suceessfully")
+                    }
+                })
         }
     }
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
-               
+
                 <thead>
                     <tr>
                         <th>
@@ -50,11 +50,11 @@ const MyReviews = () => {
                 </thead>
                 <tbody>
                     {
-                        myreview.map(review=><Myreviewrow
-                             key={review._id} review={review} deletedHandle={deletedHandle}
-                             >
+                        myreview.map(review => <Myreviewrow
+                            key={review._id} review={review} deletedHandle={deletedHandle}
+                        >
 
-                             </Myreviewrow>)
+                        </Myreviewrow>)
                     }
                 </tbody>
             </table>

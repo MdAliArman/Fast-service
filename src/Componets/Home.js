@@ -9,7 +9,7 @@ const Home = () => {
     const [service, setService] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/service")
+        fetch("https://y-zeta-one.vercel.app/service")
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
@@ -26,10 +26,10 @@ const Home = () => {
                         ></Service>)
                     }
                 </div>
-               
+
                 <div className="card-actions justify-center">
-                <Link to='/service'><button className="btn btn-active btn-primary mx-auto">See More</button></Link>
-            </div>
+                    <Link to='/service'><button className="btn btn-active btn-primary mx-auto">See More</button></Link>
+                </div>
             </div>
             <Team></Team>
             <Skill></Skill>
