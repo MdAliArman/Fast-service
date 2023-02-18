@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Navigate, useLoaderData } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import {  useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import ReviewItems from '../Share/ReviewItems';
 import ServicesDetails from '../Share/ServicesDetails';
@@ -9,7 +10,7 @@ const Review = () => {
     const service = useLoaderData();
     const { _id, title } = service;
     const [review, setReview] = useState([])
-console.log(review)
+    console.log(review)
     const addReview = (event) => {
         event.preventDefault();
         const form = event.target
@@ -38,7 +39,7 @@ console.log(review)
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('review add seccuse')
+                    toast.success('Review Added Successfully')
                     form.reset();
                 }
 
@@ -56,51 +57,51 @@ console.log(review)
                 <ServicesDetails service={service}></ServicesDetails>
             </div>
             <div className="">
-               
-               
+
+
                 <h1 className="text-2xl font-bold text-center">Our client Say</h1>
-               {
-                review.length===0?
-                <h1 className='text-xl font-semibold text-green-600'>Please Add Review !!!!</h1>
-                :
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                 {
-                 review.map(rev=><ReviewItems
-                 key={rev._id}
-                 rev={rev}
-                 ></ReviewItems>)
+                    review.length === 0 ?
+                        <h1 className='text-xl font-semibold text-green-600'>Please Add Review !!!!</h1>
+                        :
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                            {
+                                review.map(rev => <ReviewItems
+                                    key={rev._id}
+                                    rev={rev}
+                                ></ReviewItems>)
+                            }
+                        </div>
                 }
-             </div>
-               }
                 <div className="my-4 block justify-items-center" >
 
                     <label htmlFor="my-modal" className="btn">Add Review</label>
                     <input type="checkbox" id="my-modal" className="modal-toggle" />
 
                     <div className="modal">
-                      
+
                         <div className="modal-box text-center">
-                
-                        <form onSubmit={addReview}>
 
-                            <input name="name" type="text" placeholder="Name" className="input input-bordered w-full max-w-xs my-2" />
-                            <input name="email " type="email" placeholder="Email" className="input input-bordered w-full max-w-xs my-2" defaultValue={users?.email} readOnly />
-                            <input name='photourl' type="text" placeholder="Photo Url" className="input input-bordered w-full max-w-xs my-2" />
-                            <textarea name='massage' cols="40" className="textarea textarea-bordered my-2" placeholder="You review"></textarea>
+                            <form onSubmit={addReview}>
+
+                                <input name="name" type="text" placeholder="Name" className="input input-bordered w-full max-w-xs my-2" />
+                                <input name="email " type="email" placeholder="Email" className="input input-bordered w-full max-w-xs my-2" defaultValue={users?.email} readOnly />
+                                <input name='photourl' type="text" placeholder="Photo Url" className="input input-bordered w-full max-w-xs my-2" />
+                                <textarea name='massage' cols="40" className="textarea textarea-bordered my-2" placeholder="You review"></textarea>
 
 
 
-                            <div className="modal-action">
+                                <div className="modal-action">
 
-                                <label className="btn"><button>Submit</button></label>
-                                <label htmlFor="my-modal" className="btn">Close</label>
-                            </div>
+                                    <label className="btn"><button>Submit</button></label>
+                                    <label htmlFor="my-modal" className="btn">Close</label>
+                                </div>
 
-                        </form>
-                        
+                            </form>
 
-                    </div>
-                   
+
+                        </div>
+
                     </div>
 
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Share/Banner/Banner';
 import Service from '../Share/service/Service';
+import Skill from './Skill';
 import Team from './Team';
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
             </div>
             </div>
             <Team></Team>
+            <Skill></Skill>
         </div>
     );
 };

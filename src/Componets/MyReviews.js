@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../Context/AuthProvider';
 import Myreviewrow from '../Share/Myreviewrow';
 
@@ -25,7 +26,7 @@ const MyReviews = () => {
                if(data.deletedCount > 0){
                
                 setRefrech(!refrech)
-                alert('deleted seccusee full');
+               toast.success("Deleted Suceessfully")
                }
             })
         }

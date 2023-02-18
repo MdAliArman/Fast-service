@@ -1,28 +1,41 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-
+import img from '../asset/log/log.jpg'
+import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
 const Login = () => {
-const {login}=useContext(AuthContext)
+    const { login, googleSign } = useContext(AuthContext);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
-    const handlesignUp=event=>{
+    const handlesignUp = event => {
         event.preventDefault();
-        const form=event.target;
-        const email=form.email.value;
-        const password=form.password.value;
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
         login(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true });
+            }).catch(err => console.log(err))
+
+
+    }
+    const googleHandle=()=>{
+        googleSign()
         .then(result=>{
-            const user=result.user;
+            const user=result.user
             console.log(user)
-        }).catch(err=>console.log(err))
-     
-        
+        })
+        .catch(error=>console.log(error.message))
     }
     return (
         <div className="hero my-20">
             <div className="hero-content grid md:grid-cols-2 gap-10 flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <img src="" className='w-3/4' alt="" />
+                    <img src={img} className='w-3/4' alt="" />
 
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -48,6 +61,11 @@ const {login}=useContext(AuthContext)
                         </div>
                         <p className='py-3 text-center'>You have no account go to  <Link to='/signup' className='font-semibold'>Please Sign Up</Link></p>
                     </form>
+                    <div className="mb-6 my-0 mx-auto">
+                        <button className='text-4xl text-center mr-5 text-blue-500' onClick={googleHandle}><FaGoogle></FaGoogle></button>
+                        <button className='text-4xl text-center mr-5 text-blue-500'> <FaFacebook></FaFacebook></button>
+                        <button className='text-4xl text-center mr-5 text-blue-500'><FaInstagram></FaInstagram></button>
+                    </div>
                 </div>
             </div>
         </div>

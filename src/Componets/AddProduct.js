@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
 const AddProduct = () => {
 
@@ -27,7 +28,7 @@ const AddProduct = () => {
 
         console.log(data)
         if(data.acknowledged){
-            alert('service Add SeccesFully')
+           toast.success("You Add Service")
             form.reset()
         }
     })

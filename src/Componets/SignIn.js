@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-
+import img from '../asset/log/log.jpg'
 const SignIn = () => {
-   const {createUser}=useContext(AuthContext)
+   const {createUser}=useContext(AuthContext);
+  const navigate=useNavigate()
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -13,6 +14,8 @@ const SignIn = () => {
         .then(result=>{
             const user=result.user;
             console.log(user)
+            navigate('/')
+
         }).catch(err=>console.log(err))
 
 
@@ -22,7 +25,7 @@ const SignIn = () => {
         <div className="hero my-20">
             <div className="hero-content grid md:grid-cols-2 gap-10 flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <img src='' className='w-3/4' alt="" />
+                    <img src={img} className='w-3/4' alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body" onSubmit={handleSignUp}>
